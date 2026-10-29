@@ -5,7 +5,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SUPPORT, FEEDBACK = "irlgamesnow@proton.me", "IRLGfeedback@proton.me"
 DISCORD = "https://discord.gg/7yDTUyphKN"
 
-def page(name, title, desc, body, current):
+SITE = "https://irlgames.github.io/"
+
+def page(name, title, desc, body, current, og="og_home.jpg"):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == current else ""}>{t}</a>'
                   for k, h, t in [("home", "index.html", "Store"), ("nn", "neon-noon.html", "Neon Noon"), ("dmh", "dead-mans-hand.html", "Dead Man's Hand"),
                                   ("support", "support.html", "Support"), ("privacy", "privacy.html", "Privacy")])
@@ -16,6 +18,16 @@ def page(name, title, desc, body, current):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
+<meta property="og:site_name" content="IRL Games Studio">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{title}">
+<meta property="og:description" content="{desc}">
+<meta property="og:url" content="{SITE}{'' if name == 'index.html' else name}">
+<meta property="og:image" content="{SITE}assets/img/{og}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#941D16">
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -84,7 +96,7 @@ def game_page(key):
   <aside class="panel"><p class="h-label">Features</p><ul>{''.join(f'<li>{f}</li>' for f in g['features'])}</ul></aside>
 </div>
 </main>"""
-    page(g["file"], f"{g['title']} · IRL Games Studio", f"{g['title']}: {g['short']}", body, key)
+    page(g["file"], f"{g['title']} · IRL Games Studio", f"{g['blurb']} {g['short']} Coming to Steam and Google Play.", body, key, f"og_{key}.jpg")
 
 def home():
     slides = ""
