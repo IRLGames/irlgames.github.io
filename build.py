@@ -3,6 +3,7 @@ No secrets in anything here (owner rule): no Wren, the Stranger is never named."
 import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 SUPPORT, FEEDBACK = "irlgamesnow@proton.me", "IRLGfeedback@proton.me"
+DISCORD = "https://discord.gg/7yDTUyphKN"
 
 def page(name, title, desc, body, current):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == current else ""}>{t}</a>'
@@ -24,7 +25,7 @@ def page(name, title, desc, body, current):
 <body>
 <header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/img/irl_logo.webp" alt="" width="36" height="36" style="align-self:center">IRL GAMES <small>STUDIO</small></a><nav class="nav" aria-label="Main">{nav}</nav></div></header>
 {body}
-<footer><div class="wrap"><span>© 2026 IRL Games Studio</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><span>{SUPPORT}</span></div></footer>
+<footer><div class="wrap"><span>© 2026 IRL Games Studio</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{DISCORD}" rel="noopener">Discord</a><span>{SUPPORT}</span></div></footer>
 <script src="assets/site.js"></script>
 </body>
 </html>
@@ -105,6 +106,7 @@ def home():
 </div></section>
 <section class="section" id="vtube-live"><p class="h-label">Coming soon</p><div class="vtube"><img src="assets/img/vtubelive_icon.webp" alt="Vtube Live icon">
 <div><h2>Vtube Live</h2><p class="muted">A VTuber app from IRL Games Studio: build your avatar and go live. In development.</p>{tags(["VTuber", "Avatar", "Streaming", "In development"])}</div></div></section>
+<section class="section" id="community"><p class="h-label">Community</p><div class="buy" style="margin:0"><div><h2>Join us on Discord</h2><p>News, development updates and a place to talk about the games.</p></div><a class="btn" href="{DISCORD}" rel="noopener">Join the Discord</a></div></section>
 <section class="section"><p class="h-label">About the studio</p><p style="max-width:68ch">IRL Games Studio is a small independent studio making story-first games about hard choices and the people who live with them.</p></section>
 </main>"""
     page("index.html", "IRL Games Studio", "Story-first games by IRL Games Studio: Neon Noon and Neon Noon: Dead Man's Hand, coming to Steam and Google Play.", body, "home")
@@ -113,6 +115,7 @@ def support():
     body = f"""<main class="wrap doc"><h1>Support</h1>
 <p>Stuck, found a bug, or have a question about one of our games? We read everything.</p>
 <div class="panel"><p style="margin:0">General questions and help: <span class="mail">{SUPPORT}</span></p><p style="margin:6px 0 0">Game feedback and ideas: <span class="mail">{FEEDBACK}</span></p></div>
+<h2>Community</h2><p>Talk to us and other players on our <a href="{DISCORD}" rel="noopener">Discord server</a>.</p>
 <h2>Reporting a bug from inside the game</h2><p>Every IRL Games Studio game has a "report a problem" button. It sends us a short note and a screenshot of where you are, so we can see exactly what went wrong. See our <a href="privacy.html">Privacy Policy</a> for what a report contains.</p>
 <h2>Deleting your data</h2><p>Our games don't create accounts or collect anything automatically. If you sent a bug report and want it deleted, email <span class="mail">{SUPPORT}</span> and we'll remove it.</p>
 <h2>Refunds</h2><p>Purchases and refunds are handled by the store you bought from (Google Play or Steam).</p></main>"""
