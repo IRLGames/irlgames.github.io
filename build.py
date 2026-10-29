@@ -26,7 +26,14 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 <meta property="og:image" content="{SITE}assets/img/{og}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{title}">
+<meta property="og:locale" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{title}">
+<meta name="twitter:description" content="{desc}">
+<meta name="twitter:image" content="{SITE}assets/img/{og}">
+<meta name="twitter:image:alt" content="{title}">
+<link rel="canonical" href="{SITE}{'' if name == 'index.html' else name}">
 <meta name="theme-color" content="#941D16">
 <link rel="icon" href="assets/img/favicon.png">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
