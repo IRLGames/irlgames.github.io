@@ -121,3 +121,8 @@ footer .wrap { padding-block: 22px; display: flex; flex-wrap: wrap; gap: 8px 22p
   .top .wrap { gap: 6px 22px; padding-block: 10px; }
 }
 @media (prefers-reduced-motion: reduce) { .cap { transition: none; } .cap:hover { transform: none; } }
+/* four capsules in the row (No People, No Stories added 2026-10-30): the Vtube card's icon took the full-width capsule image rule
+   and the card ran past the page; long labels wrap */
+.cap { min-width: 0; grid-template-columns: minmax(0, 1fr); }
+.cap .ct { flex-wrap: wrap; }
+.cap .vt img { width: 96px; height: 96px; aspect-ratio: 1; border-radius: 22px; }
