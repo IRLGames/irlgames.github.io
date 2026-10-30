@@ -53,7 +53,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 """
     open(os.path.join(HERE, name), "w").write(html)
 
-REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.1/"   # the free game's downloads (a GitHub release on this repo)
+REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.2/"   # the free game's downloads (a GitHub release on this repo)
 
 GAMES = {
     "nn": dict(file="neon-noon.html", title="Neon Noon", short="Six hours. Not one man in town will stand with him.",
@@ -76,8 +76,8 @@ GAMES = {
                         "Eight places, three times of day, and a sound mixer for each. One of them is Sundown, the district from Neon Noon, empty at 3 a.m., with the theme playing from a bar somewhere. Free, from IRL Games Studio."],
                  features=["8 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Touch controls on Android", "Free"],
                  release="October 30, 2026", price="Free", platforms="Windows · Linux · Steam Deck · Android", badge="Free",
-                 buy="Free. Windows, Linux (Steam Deck: the Linux build) and Android. Version 1.0.1",
-                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.1-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.1-linux.tar.gz"), ("Android", REL + "NoPeopleNoStories-1.0.1-android.apk")]),
+                 buy="Free. Windows, Linux (Steam Deck: the Linux build) and Android. Version 1.0.2",
+                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.2-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.2-linux.tar.gz"), ("Android", REL + "NoPeopleNoStories-1.0.2-android.apk")]),
     "dmh": dict(file="dead-mans-hand.html", title="Neon Noon: Dead Man's Hand", short="Eleven years before noon. A stranger sits down with money and a question.",
                 blurb="The poker prequel to Neon Noon.",
                 tags=["Poker", "Card Game", "Visual Novel", "Cyberpunk", "Western", "Story Rich", "Multiple Endings", "Noir"],
