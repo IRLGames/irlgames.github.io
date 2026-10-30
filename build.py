@@ -53,7 +53,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 """
     open(os.path.join(HERE, name), "w").write(html)
 
-REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.0/"   # the free game's downloads (a GitHub release on this repo)
+REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.1/"   # the free game's downloads (a GitHub release on this repo)
 
 GAMES = {
     "nn": dict(file="neon-noon.html", title="Neon Noon", short="Six hours. Not one man in town will stand with him.",
@@ -74,10 +74,10 @@ GAMES = {
                  about=["No People, No Stories is a quiet, endless walk through the places in between: a sunlit poolroom, a parking garage in the rain, a platform where no train stops, a laundromat at 3 a.m.",
                         "Every place is built fresh when you walk in, and it never ends. There's nothing to win and no one to meet. Just the hum of the lights, the water, the rain, mixed the way you like it.",
                         "Eight places, three times of day, and a sound mixer for each. One of them is Sundown, the district from Neon Noon, empty at 3 a.m., with the theme playing from a bar somewhere. Free, from IRL Games Studio."],
-                 features=["8 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Free"],
-                 release="October 30, 2026", price="Free", platforms="Windows · Linux · Steam Deck", badge="Free",
-                 buy="Free. Windows and Linux (Steam Deck: the Linux build). Version 1.0.0",
-                 downloads=[("Download for Windows", REL + "NoPeopleNoStories-1.0.0-windows.zip"), ("Download for Linux", REL + "NoPeopleNoStories-1.0.0-linux.tar.gz")]),
+                 features=["8 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Touch controls on Android", "Free"],
+                 release="October 30, 2026", price="Free", platforms="Windows · Linux · Steam Deck · Android", badge="Free",
+                 buy="Free. Windows, Linux (Steam Deck: the Linux build) and Android. Version 1.0.1",
+                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.1-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.1-linux.tar.gz"), ("Android", REL + "NoPeopleNoStories-1.0.1-android.apk")]),
     "dmh": dict(file="dead-mans-hand.html", title="Neon Noon: Dead Man's Hand", short="Eleven years before noon. A stranger sits down with money and a question.",
                 blurb="The poker prequel to Neon Noon.",
                 tags=["Poker", "Card Game", "Visual Novel", "Cyberpunk", "Western", "Story Rich", "Multiple Endings", "Noir"],
@@ -127,7 +127,7 @@ def game_page(key):
   <aside class="panel"><p class="h-label">Features</p><ul>{''.join(f'<li>{f}</li>' for f in g['features'])}</ul></aside>
 </div>
 </main>"""
-    page(g["file"], f"{g['title']} · IRL Games Studio", f"{g['blurb']} {g['short']} " + ("Free on Windows and Linux." if g.get("downloads") else "Coming to Steam and Google Play."), body, key, f"og_{key}.jpg")
+    page(g["file"], f"{g['title']} · IRL Games Studio", f"{g['blurb']} {g['short']} " + ("Free on Windows, Linux and Android." if g.get("downloads") else "Coming to Steam and Google Play."), body, key, f"og_{key}.jpg")
 
 def home():
     slides = ""
@@ -169,6 +169,7 @@ def privacy():
     body = f"""<main class="wrap doc"><h1>Privacy Policy</h1><p class="muted">Effective October 28, 2026</p>
 <p>This policy covers all games by IRL Games Studio ("we"), including Neon Noon, Neon Noon: Dead Man's Hand and No People, No Stories, on every platform.</p>
 <p><b>The short version:</b> our games don't collect anything about you unless you choose to send us a bug report. There are no ads, no tracking, no analytics and no accounts.</p>
+<h2>Update check (No People, No Stories)</h2><p>When it starts, No People, No Stories asks GitHub once whether a newer version is out. The request carries only the game's version number; like any web request, GitHub sees your internet address. Nothing else is sent, and we receive nothing from it.</p>
 <h2>What stays on your device</h2><p>Your saves, settings and progress are stored only on your device. We never see them.</p>
 <h2>Bug reports (only if you send one)</h2><p>Each game has a "report a problem" button. Nothing is sent unless you write a report and press Send. A report can include:</p>
 <ul><li>the message you write, and your name or email only if you choose to add them;</li><li>a screenshot of the game screen at that moment;</li>
