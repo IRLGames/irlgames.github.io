@@ -6,6 +6,15 @@ SUPPORT, FEEDBACK = "irlgamesnow@proton.me", "IRLGfeedback@proton.me"
 DISCORD = "https://discord.gg/7yDTUyphKN"
 X_URL, X_HANDLE = "https://x.com/IRLGamesNow", "@IRLGamesNow"
 YT_URL = "https://www.youtube.com/@IRLGamesNow"   # owner, 2026-11-03
+# the visit counter (owner 2026-11-03: "just a visit counter"): the Apps Script web app URL from ../counter/apps_script.gs.
+# Empty = no counter on the site and no counter line in the privacy policy.
+COUNTER_URL = ""
+COUNTER_JS = ("" if not COUNTER_URL else
+    '<script>try{if(!sessionStorage.getItem("irl_v")){sessionStorage.setItem("irl_v","1");var u="' + COUNTER_URL + '?ping";'
+    'if(!(navigator.sendBeacon&&navigator.sendBeacon(u)))fetch(u,{mode:"no-cors",keepalive:true});}}catch(e){}</script>')
+COUNTER_PRIVACY = ("" if not COUNTER_URL else
+    "<h2>Website visits</h2><p>This website counts visits. When you open it, that day's tally goes up by one. Nothing about you is "
+    "sent or kept: no cookies, no address, no browser details. We see only the number of visits per day, in a private Google spreadsheet.</p>")
 
 SITE = "https://irlgames.github.io/"
 
@@ -48,13 +57,13 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 <header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/img/irl_logo.webp" alt="" width="36" height="36" style="align-self:center">IRL GAMES <small>STUDIO</small></a><nav class="nav" aria-label="Main">{nav}</nav></div></header>
 {body}
 <footer><div class="wrap"><span>© 2026 IRL Games Studio</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><span>{SUPPORT}</span></div></footer>
-<script src="assets/site.js"></script>
+<script src="assets/site.js"></script>{COUNTER_JS}
 </body>
 </html>
 """
     open(os.path.join(HERE, name), "w").write(html)
 
-REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.4/"   # the free game's downloads (a GitHub release on this repo)
+REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.6/"   # the free game's downloads (a GitHub release on this repo)
 
 GAMES = {
     "nn": dict(file="neon-noon.html", title="Neon Noon", short="Six hours. Not one man in town will stand with him.",
@@ -72,13 +81,13 @@ GAMES = {
                  shots=[("01_title", "Title screen"), ("02_pools", "The Pools"), ("09_sundown", "Sundown, after hours"), ("05_laundromat", "The Laundromat"),
                         ("07_temple", "The Temple"), ("08_hotel", "The Hotel"), ("06_mall", "The Night Mall"), ("03_garage", "The Garage"),
                         ("04_platform", "The Platform"), ("10_sundown_late", "Sundown, late light"), ("11_places", "Where would you like to wander?")],
-                 about=["No People, No Stories is a quiet, endless walk through the places in between: a sunlit poolroom, a parking garage in the rain, a platform where no train stops, a laundromat at 3 a.m., an office where the lights hum and fail.",
+                 about=["No People, No Stories is a quiet, endless walk through the places in between: a sunlit poolroom, a parking garage in the rain, a platform where no train stops, a laundromat at 3 a.m., an office where the lights hum and fail, a long black road in the fog.",
                         "Every place is built fresh when you walk in, and it never ends. There's nothing to win and no one to meet. Just the hum of the lights, the water, the rain, mixed the way you like it.",
-                        "Nine places, three times of day, and a sound mixer for each. One of them is Sundown, the district from Neon Noon, empty at 3 a.m., with the theme playing from a bar somewhere. Free, from IRL Games Studio."],
-                 features=["9 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Touch controls on Android", "Free"],
+                        "Ten places, three times of day, and a sound mixer for each. One of them is Sundown, the district from Neon Noon, empty at 3 a.m., with the theme playing from a bar somewhere. Free, from IRL Games Studio."],
+                 features=["10 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Touch controls on Android", "Free"],
                  release="October 30, 2026", price="Free", platforms="Windows · Linux · Steam Deck · Android", badge="Free",
-                 buy="Free. Windows, Linux (Steam Deck: the Linux build) and Android. Version 1.0.4",
-                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.4-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.4-linux.tar.gz"), ("Android", REL + "NoPeopleNoStories-1.0.4-android.apk")]),
+                 buy="Free. Windows, Linux (Steam Deck: the Linux build) and Android. Version 1.0.6",
+                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.6-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.6-linux.tar.gz"), ("Android", REL + "NoPeopleNoStories-1.0.6-android.apk")]),
     "dmh": dict(file="dead-mans-hand.html", title="Neon Noon: Dead Man's Hand", short="Eleven years before noon. A stranger sits down with money and a question.",
                 blurb="The poker prequel to Neon Noon.",
                 tags=["Poker", "Card Game", "Visual Novel", "Cyberpunk", "Western", "Story Rich", "Multiple Endings", "Noir"],
@@ -177,7 +186,7 @@ def privacy():
 <li>the game's version number and the type of device or operating system;</li><li>where you were in the game, such as the chapter and the last few lines of story shown.</li></ul>
 <p>Reports are sent securely (HTTPS) to a private Google spreadsheet that only we can read. We use them only to find and fix problems. We don't sell or share them, and we delete them when they're no longer needed or when you ask us to.</p>
 <h2>Store platforms</h2><p>Purchases are handled by the store you buy from, such as Google Play or Steam, under their own privacy policies. On Steam, achievements are recorded through Steam. We don't receive your payment details.</p>
-<h2>Children</h2><p>Our games are made for adults and aren't directed at children under 13. We don't knowingly collect information from children.</p>
+{COUNTER_PRIVACY}<h2>Children</h2><p>Our games are made for adults and aren't directed at children under 13. We don't knowingly collect information from children.</p>
 <h2>Your choices</h2><p>To have a bug report you sent deleted, or to ask any question about privacy, email us at <span class="mail">{SUPPORT}</span>. We'll reply within 30 days.</p>
 <h2>Changes</h2><p>If this policy changes, we'll update the date at the top of this page.</p></main>"""
     page("privacy.html", "Privacy Policy · IRL Games Studio", "Privacy policy for IRL Games Studio games.", body, "privacy")
