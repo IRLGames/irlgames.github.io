@@ -60,7 +60,7 @@ GAMES = {
     "nn": dict(file="neon-noon.html", title="Neon Noon", short="Six hours. Not one man in town will stand with him.",
                blurb="A cyberpunk High Noon visual novel.",
                tags=["Visual Novel", "Cyberpunk", "Western", "Story Rich", "Choices Matter", "Multiple Endings", "Poker", "Noir", "Mature"],
-               shots=[("01_title", "Title screen"), ("02_prologue", "The opening"), ("03_sable", "Sable's bar, the Last Light"), ("04_lin", "Lin, the morning of"),
+               shots=[("01_title", "Title screen"), ("02_prologue", "The opening"), ("03_sable", "Sable's bar"), ("04_lin", "Lin, the morning of"),
                       ("05_town_map", "The town of Sundown"), ("06_poker", "The card table"), ("07_faces", "Faces of Sundown")],
                about=["A retired lawman has until noon, a wife to protect, and a town that won't stand with him.",
                       "Every choice closes a door, and not every door opens again. Talk your way through Sundown, find out who will stand at noon and who won't, and live with what that costs.",
