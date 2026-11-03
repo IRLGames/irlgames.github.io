@@ -54,7 +54,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 """
     open(os.path.join(HERE, name), "w").write(html)
 
-REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.3/"   # the free game's downloads (a GitHub release on this repo)
+REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.4/"   # the free game's downloads (a GitHub release on this repo)
 
 GAMES = {
     "nn": dict(file="neon-noon.html", title="Neon Noon", short="Six hours. Not one man in town will stand with him.",
@@ -72,13 +72,13 @@ GAMES = {
                  shots=[("01_title", "Title screen"), ("02_pools", "The Pools"), ("09_sundown", "Sundown, after hours"), ("05_laundromat", "The Laundromat"),
                         ("07_temple", "The Temple"), ("08_hotel", "The Hotel"), ("06_mall", "The Night Mall"), ("03_garage", "The Garage"),
                         ("04_platform", "The Platform"), ("10_sundown_late", "Sundown, late light"), ("11_places", "Where would you like to wander?")],
-                 about=["No People, No Stories is a quiet, endless walk through the places in between: a sunlit poolroom, a parking garage in the rain, a platform where no train stops, a laundromat at 3 a.m.",
+                 about=["No People, No Stories is a quiet, endless walk through the places in between: a sunlit poolroom, a parking garage in the rain, a platform where no train stops, a laundromat at 3 a.m., an office where the lights hum and fail.",
                         "Every place is built fresh when you walk in, and it never ends. There's nothing to win and no one to meet. Just the hum of the lights, the water, the rain, mixed the way you like it.",
-                        "Eight places, three times of day, and a sound mixer for each. One of them is Sundown, the district from Neon Noon, empty at 3 a.m., with the theme playing from a bar somewhere. Free, from IRL Games Studio."],
-                 features=["8 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Touch controls on Android", "Free"],
+                        "Nine places, three times of day, and a sound mixer for each. One of them is Sundown, the district from Neon Noon, empty at 3 a.m., with the theme playing from a bar somewhere. Free, from IRL Games Studio."],
+                 features=["9 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Touch controls on Android", "Free"],
                  release="October 30, 2026", price="Free", platforms="Windows · Linux · Steam Deck · Android", badge="Free",
-                 buy="Free. Windows, Linux (Steam Deck: the Linux build) and Android. Version 1.0.3",
-                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.3-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.3-linux.tar.gz"), ("Android", REL + "NoPeopleNoStories-1.0.3-android.apk")]),
+                 buy="Free. Windows, Linux (Steam Deck: the Linux build) and Android. Version 1.0.4",
+                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.4-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.4-linux.tar.gz"), ("Android", REL + "NoPeopleNoStories-1.0.4-android.apk")]),
     "dmh": dict(file="dead-mans-hand.html", title="Neon Noon: Dead Man's Hand", short="Eleven years before noon. A stranger sits down with money and a question.",
                 blurb="The poker prequel to Neon Noon.",
                 tags=["Poker", "Card Game", "Visual Novel", "Cyberpunk", "Western", "Story Rich", "Multiple Endings", "Noir"],
