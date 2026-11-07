@@ -91,6 +91,8 @@ p { margin: 0 0 12px; }
 .buy { margin: 22px 0; background: var(--panel-2); border: 1px solid var(--gold); padding: 16px 18px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; }
 .buy h2 { margin: 0; font-size: 21px; }
 .buy p { margin: 2px 0 0; color: var(--gold-hi); font-size: 14px; }
+.play { display: inline-block; line-height: 0; }
+footer .tm { flex-basis: 100%; font-size: 12px; opacity: .7; }
 .btn { display: inline-block; background: linear-gradient(to bottom, var(--crimson-hi) 5%, #7c1712 95%); color: #fff; padding: 9px 20px; border-radius: 2px; font: 600 15px/1 var(--f-body); white-space: nowrap; }
 .cols { display: grid; grid-template-columns: 1.9fr 1fr; gap: 26px; }
 .cols > * { min-width: 0; }
