@@ -8,8 +8,8 @@ X_URL, X_HANDLE = "https://x.com/IRLGamesNow", "@IRLGamesNow"
 YT_URL = "https://www.youtube.com/@IRLGamesNow"   # owner, 2026-11-03
 # tips (owner 2026-11-09: Ko-fi + Stripe, two ways so losing one isn't fatal). Empty = that button isn't shown; swap a link here only
 KOFI = "https://ko-fi.com/irlgames"
-STRIPE_TIP = "https://buy.stripe.com/dRmcN66tAaqpd012DD7Re00"   # pay-what-you-want link (owner 2026-11-09); redirects to thanks.html
-STRIPE_LIVE = False   # the link shows "paused" until Stripe finishes activating the account: True puts the card button on the site
+STRIPE_TIP = "https://buy.stripe.com/dRmcN66tAaqpdO12DD7Re00"   # pay-what-you-want link (owner 2026-11-09); redirects to thanks.html
+STRIPE_LIVE = True   # the link shows "paused" until Stripe finishes activating the account: True puts the card button on the site
 # the visit counter (owner 2026-11-03: "just a visit counter"): the Apps Script web app URL from ../counter/apps_script.gs.
 # Empty = no counter on the site and no counter line in the privacy policy.
 COUNTER_URL = ""
