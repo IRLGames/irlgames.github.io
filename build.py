@@ -20,7 +20,7 @@ SITE = "https://irlgames.github.io/"
 
 def page(name, title, desc, body, current, og="og_home.jpg"):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == current else ""}>{t}</a>'
-                  for k, h, t in [("home", "index.html", "Store"), ("nn", "neon-noon.html", "Neon Noon"), ("npns", "no-people-no-stories.html", "No People, No Stories"), ("dmh", "dead-mans-hand.html", "Dead Man's Hand"),
+                  for k, h, t in [("home", "index.html", "Store"), ("bb", "steel-chariot.html", "Steel Chariot"), ("nn", "neon-noon.html", "Neon Noon"), ("npns", "no-people-no-stories.html", "No People, No Stories"), ("dmh", "dead-mans-hand.html", "Dead Man's Hand"),
                                   ("support", "support.html", "Support"), ("privacy", "privacy.html", "Privacy")])
     html = f"""<!doctype html>
 <html lang="en">
@@ -63,9 +63,27 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 """
     open(os.path.join(HERE, name), "w").write(html)
 
+BB_SHOTS = [("01_title", "Title screen"), ("02_holy", "Holy Fire on the highway at dusk"), ("05_coast", "The coast road at night"),
+            ("08_corn", "Corn country at night"), ("03_nitro", "Nitro on the highway at dawn"), ("06_strip", "The neon strip"),
+            ("07_bridge", "The causeway gates"), ("09_cows", "Cattle on the road"), ("10_farm", "Farm country at dawn"),
+            ("11_close", "The Interceptor, up close"), ("14_truck", "The Monster Truck in the scrapyard"),
+            ("13_lift", "Paint and flames on the lift"), ("12_marks", "Painted marks")]   # frames from the 4K sizzle reel (2026-11-09)
 REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.8/"   # the free game's downloads (a GitHub release on this repo)
 
 GAMES = {
+    # Brimstone & Buckshot: Steel Chariot (owner 2026-11-08: "the web page updated with 'Coming soon' ... advertize 5 levels at least")
+    "bb": dict(file="steel-chariot.html", title="Brimstone & Buckshot: Steel Chariot", short="Weld a cross to the plow, fill the tank with Holy Fire, and drive through the damned.",
+               blurb="Zombie-smashing car combat.",
+               tags=["Action", "Driving", "Zombies", "Vehicular Combat", "Arcade", "Customization", "Gore", "Singleplayer"],
+               shots=BB_SHOTS,
+               about=["The dead walk the roads, and the roads are all that's left. You've got a car, a cross welded to the plow and a tank of Holy Fire.",
+                      "Build your chariot in the scrapyard: four cars to make your own, with paint and flames, painted marks, armour plate or a welded cage, a supercharger and a gun on the roof. Then take it out and smash through the damned at a hundred miles an hour.",
+                      "Highways, coast roads and country back roads at dusk, at night and at dawn, with fuel tankers to blow, police roadblocks to break and ramps to jump. At least five roads at launch, and more after."],
+               features=["5+ roads at launch: highway, coast, country and more", "Four cars to build: the Interceptor, the Monster Truck, the Synaxis and the Bug",
+                         "Paint, flames, marks, armour, cages, superchargers", "Roof guns: twin buckshot, stake launcher, rockets, a .50 cal heavy machine gun",
+                         "Holy Fire: blue flame from the cross on your plow", "Nitro, ramps, smash combos", "Controller and Steam Deck support"],
+               release="Coming soon", platforms="Windows · Steam Deck (Steam)", badge="Coming soon",
+               buy="Coming soon to Steam (Windows, Steam Deck).", desc="Coming soon to Steam."),
     "nn": dict(file="neon-noon.html", title="Neon Noon", short="Six hours. Not one man in town will stand with him.",
                blurb="A cyberpunk High Noon visual novel.",
                tags=["Visual Novel", "Cyberpunk", "Western", "Story Rich", "Choices Matter", "Multiple Endings", "Poker", "Noir", "Mature"],
@@ -124,7 +142,7 @@ def buy(g):   # the buy box: Google Play and/or downloads for a released game, "
     if g.get("downloads"):
         btns = "".join(f'<a class="btn" href="{u}">{t}</a>' for t, u in g["downloads"])
         return f'<div class="buy"><div><h2>{g["title"]}</h2><p>{g["buy"]}</p></div><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">{play_badge(g)}{btns}</div></div>'
-    return f'<div class="buy"><div><h2>{g["title"]}</h2><p>Coming soon to Steam and Google Play</p></div><span class="btn">Coming soon</span></div>'
+    return f'<div class="buy"><div><h2>{g["title"]}</h2><p>{g.get("buy", "Coming soon to Steam and Google Play")}</p></div><span class="btn">Coming soon</span></div>'
 
 def game_page(key):
     g = GAMES[key]
@@ -151,7 +169,7 @@ def game_page(key):
   <aside class="panel"><p class="h-label">Features</p><ul>{''.join(f'<li>{f}</li>' for f in g['features'])}</ul></aside>
 </div>
 </main>"""
-    page(g["file"], f"{g['title']} · IRL Games Studio", f"{g['blurb']} {g['short']} " + ("Free on Windows, Linux and Android." if g.get("downloads") else "On Google Play now, coming to Steam." if g.get("play") else "Coming to Steam and Google Play."), body, key, f"og_{key}.jpg")
+    page(g["file"], f"{g['title']} · IRL Games Studio", f"{g['blurb']} {g['short']} " + ("Free on Windows, Linux and Android." if g.get("downloads") else "On Google Play now, coming to Steam." if g.get("play") else g.get("desc", "Coming to Steam and Google Play.")), body, key, f"og_{key}.jpg")
 
 def home():
     slides = ""
@@ -161,12 +179,14 @@ def home():
 <div class="feat" style="border:0;box-shadow:none"><a class="feat-main" href="{g['file']}"><img src="assets/img/{key}_shot_{g['shots'][1][0]}.webp" alt="{g['title']}"></a>
 <div class="feat-side"><h2><a href="{g['file']}" style="color:#fff">{g['title']}</a></h2><div class="thumbs4">{th}</div>
 <p class="muted" style="margin:0">{g['short']}</p><div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap"><span class="badge">{g.get('badge', 'Coming soon')}</span>{play_badge(g, 46)}</div>{tags(g['tags'][:5])}</div></div></div>"""
-    body = f"""<div class="hero"><img src="assets/img/irl_header.webp" alt="IRL Games Studio" width="1920" height="560"></div>
+    # the hero is Steel Chariot (owner 2026-11-08: "Make steel chariot the main focus or featured"): its banner, linked to its page
+    body = f"""<a class="hero" href="steel-chariot.html" aria-label="Brimstone &amp; Buckshot: Steel Chariot - coming soon to Steam"><img src="assets/img/bb_hero.webp" alt="Brimstone &amp; Buckshot: Steel Chariot - coming soon to Steam" width="1920" height="560"></a>
 <main class="wrap">
 <section class="section"><p class="h-label">Featured</p>
 <div id="feat" style="position:relative"><button class="arrow l" type="button" aria-label="Previous">&#8249;</button>{slides}<button class="arrow r" type="button" aria-label="Next">&#8250;</button></div>
 <div class="dots" id="featDots"></div></section>
 <section class="section"><p class="h-label">Our games &amp; projects</p><div class="caps">
+<a class="cap" href="steel-chariot.html"><img src="assets/img/bb_capsule.webp" alt="Brimstone &amp; Buckshot: Steel Chariot"><div class="ct">Brimstone &amp; Buckshot: Steel Chariot<span>Coming soon</span></div></a>
 <a class="cap" href="neon-noon.html"><img src="assets/img/nn_capsule.webp" alt="Neon Noon"><div class="ct">Neon Noon<span>On Google Play</span></div></a>
 <a class="cap" href="no-people-no-stories.html"><img src="assets/img/npns_capsule.webp" alt="No People, No Stories"><div class="ct">No People, No Stories<span>Free</span></div></a>
 <a class="cap" href="dead-mans-hand.html"><img src="assets/img/dmh_capsule.webp" alt="Neon Noon: Dead Man's Hand"><div class="ct">Neon Noon: Dead Man's Hand<span>On Google Play</span></div></a>
@@ -177,7 +197,7 @@ def home():
 <section class="section" id="community"><p class="h-label">Community</p><div class="buy" style="margin:0"><div><h2>Join the community</h2><p>News, development updates, trailers and a place to talk about the games. On X and YouTube: {X_HANDLE}</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="{DISCORD}" rel="noopener">Join the Discord</a><a class="btn" href="{X_URL}" rel="noopener">Follow on X</a><a class="btn" href="{YT_URL}" rel="noopener">Watch on YouTube</a></div></div></section>
 <section class="section"><p class="h-label">About the studio</p><p style="max-width:68ch">IRL Games Studio is a small independent studio making story-first games about hard choices and the people who live with them.</p></section>
 </main>"""
-    page("index.html", "IRL Games Studio", "Story-first games by IRL Games Studio: Neon Noon and Neon Noon: Dead Man's Hand, on Google Play now and coming to Steam, and No People, No Stories, free now.", body, "home")
+    page("index.html", "IRL Games Studio", "Games by IRL Games Studio: Brimstone & Buckshot: Steel Chariot, coming soon to Steam; Neon Noon and Neon Noon: Dead Man's Hand, on Google Play now and coming to Steam, and No People, No Stories, free now.", body, "home")
 
 def support():
     body = f"""<main class="wrap doc"><h1>Support</h1>
@@ -206,5 +226,5 @@ def privacy():
     page("privacy.html", "Privacy Policy · IRL Games Studio", "Privacy policy for IRL Games Studio games.", body, "privacy")
 
 if __name__ == "__main__":
-    home(); game_page("nn"); game_page("npns"); game_page("dmh"); support(); privacy()
+    home(); game_page("bb"); game_page("nn"); game_page("npns"); game_page("dmh"); support(); privacy()
     print("built:", ", ".join(sorted(f for f in os.listdir(HERE) if f.endswith(".html"))))

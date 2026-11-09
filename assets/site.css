@@ -34,6 +34,7 @@ img, video { max-width: 100%; display: block; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--gold-hi); border-bottom-color: var(--gold); }
 
 .hero img { width: 100%; height: auto; }
+a.hero { display: block; }
 .section { padding-block: 34px; }
 .h-label { font: 600 13px/1 var(--f-body); letter-spacing: .14em; text-transform: uppercase; color: var(--gold); border-bottom: 2px solid var(--crimson); padding-bottom: 8px; margin: 0 0 16px; }
 h1, h2, h3 { font-family: var(--f-display); color: #fff; text-wrap: balance; }
