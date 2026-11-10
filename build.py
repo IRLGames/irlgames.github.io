@@ -4,7 +4,7 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 SUPPORT = FEEDBACK = "LuxCorGames@proton.me"   # (owner 2026-11-10: "LuxCorGames@proton.me is the email for the company"; was irlgamesnow@ / IRLGfeedback@)
 DISCORD = "https://discord.gg/7yDTUyphKN"
-X_URL, X_HANDLE = "https://x.com/IRLGamesNow", "@IRLGamesNow"
+X_URL, X_HANDLE = "https://x.com/LuxCorMedia", "@LuxCorMedia"   # (owner 2026-11-10: "the New X.com is @LuxCorMedia"; was @IRLGamesNow)
 YT_URL = "https://www.youtube.com/@IRLGamesNow"   # owner, 2026-11-03
 # tips (owner 2026-11-09: Ko-fi + Stripe, two ways so losing one isn't fatal). Empty = that button isn't shown; swap a link here only
 KOFI = "https://ko-fi.com/irlgames"
@@ -72,7 +72,7 @@ BB_SHOTS = [("01_title", "Title screen"), ("02_holy", "Holy Fire on the highway 
             ("07_bridge", "The causeway gates"), ("09_cows", "Cattle on the road"), ("10_farm", "Farm country at dawn"),
             ("11_close", "The Interceptor, up close"), ("14_truck", "The Monster Truck in the scrapyard"),
             ("13_lift", "Paint and flames on the lift"), ("12_marks", "Painted marks")]   # frames from the 4K sizzle reel (2026-11-09)
-REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.8/"   # the free game's downloads (a GitHub release on this repo)
+REL = "https://github.com/IRLGames/irlgames.github.io/releases/download/no-people-no-stories-v1.0.9/"   # the free game's downloads (a GitHub release on this repo)
 
 GAMES = {
     # Brimstone & Buckshot: Steel Chariot (owner 2026-11-08: "the web page updated with 'Coming soon' ... advertize 5 levels at least")
@@ -113,9 +113,9 @@ GAMES = {
                         "Eleven places, three times of day, and a sound mixer for each. One of them is Sundown, the district from Neon Noon, empty at 3 a.m., with the theme playing from a bar somewhere. Free, from Lux Cor Games."],
                  features=["11 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Touch controls on Android", "Free"],
                  release="October 30, 2026", price="Free", platforms="Windows · Linux · Steam Deck · Android", badge="Free",
-                 buy="Free on Google Play, or download it here: Windows, Linux (Steam Deck: the Linux build) and Android APK. Version 1.0.8",
+                 buy="Free on Google Play, or download it here: Windows, Linux (Steam Deck: the Linux build) and Android APK. Version 1.0.9",
                  play="https://play.google.com/store/apps/details?id=com.irlgamesstudio.nopeoplenostories",
-                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.8-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.8-linux.tar.gz"), ("Android APK", REL + "NoPeopleNoStories-1.0.8-android.apk")]),
+                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.9-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.9-linux.tar.gz"), ("Android APK", REL + "NoPeopleNoStories-1.0.9-android.apk")]),
     "dmh": dict(file="dead-mans-hand.html", title="Neon Noon: Dead Man's Hand", short="Eleven years before noon. A stranger sits down with money and a question.",
                 blurb="The poker prequel to Neon Noon.",
                 tags=["Poker", "Card Game", "Visual Novel", "Cyberpunk", "Western", "Story Rich", "Multiple Endings", "Noir"],
