@@ -1,4 +1,4 @@
-// IRL GAMES STUDIO · the featured carousel (home) and the media viewer (game pages). No libraries.
+// LUX COR GAMES · the featured carousel (home) and the media viewer (game pages). No libraries.
 (() => {
   // featured carousel: slides are .slide inside #feat, one shown at a time
   const feat = document.getElementById("feat");

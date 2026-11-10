@@ -1,8 +1,8 @@
-"""IRL GAMES STUDIO website: builds the pages from one shared head, menu and footer.  python3 build.py
+"""LUX COR GAMES website (renamed from Lux Cor Games, owner 2026-11-10): builds the pages from one shared head, menu and footer.  python3 build.py
 No secrets in anything here (owner rule): no Wren, the Stranger is never named."""
 import os
 HERE = os.path.dirname(os.path.abspath(__file__))
-SUPPORT, FEEDBACK = "irlgamesnow@proton.me", "IRLGfeedback@proton.me"
+SUPPORT = FEEDBACK = "LuxCorGames@proton.me"   # (owner 2026-11-10: "LuxCorGames@proton.me is the email for the company"; was irlgamesnow@ / IRLGfeedback@)
 DISCORD = "https://discord.gg/7yDTUyphKN"
 X_URL, X_HANDLE = "https://x.com/IRLGamesNow", "@IRLGamesNow"
 YT_URL = "https://www.youtube.com/@IRLGamesNow"   # owner, 2026-11-03
@@ -33,7 +33,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{title}</title>
 <meta name="description" content="{desc}">
-<meta property="og:site_name" content="IRL Games Studio">
+<meta property="og:site_name" content="Lux Cor Games">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
@@ -58,9 +58,9 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
-<header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/img/irl_logo.webp" alt="" width="36" height="36" style="align-self:center">IRL GAMES <small>STUDIO</small></a><nav class="nav" aria-label="Main">{nav}</nav></div></header>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/img/luxcor_mark.webp" alt="" width="32" height="32" style="align-self:center;border-radius:4px">LUX COR <small>GAMES</small></a><nav class="nav" aria-label="Main">{nav}</nav></div></header>
 {body}
-<footer><div class="wrap"><span>© 2026 IRL Games Studio</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><a href="about.html#support-us">Support us</a><span>{SUPPORT}</span><span class="tm">Google Play and the Google Play logo are trademarks of Google LLC.</span></div></footer>
+<footer><div class="wrap"><span>© 2026 Lux Cor LLC · Lux Cor Games</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><a href="about.html#support-us">Support us</a><span>{SUPPORT}</span><span class="tm">Google Play and the Google Play logo are trademarks of Google LLC.</span></div></footer>
 <script src="assets/site.js"></script>{COUNTER_JS}
 </body>
 </html>
@@ -110,7 +110,7 @@ GAMES = {
                         ("04_platform", "The Platform"), ("10_sundown_late", "Sundown, late light"), ("18_egypt_sanctum", "A sanctum in the Egyptian Temple"), ("11_places", "Where would you like to wander?")],
                  about=["No People, No Stories is a quiet, endless walk through the places in between: a sunlit poolroom, a parking garage in the rain, a platform where no train stops, a laundromat at 3 a.m., a hotel lobby two floors high, a night mall with its shutters down, an office where the lights hum and fail, a long black road in the fog, an Egyptian temple where light falls from the water far above.",
                         "Every place is built fresh when you walk in, and it never ends. There's nothing to win and no one to meet. Just the hum of the lights, the water, the rain, mixed the way you like it.",
-                        "Eleven places, three times of day, and a sound mixer for each. One of them is Sundown, the district from Neon Noon, empty at 3 a.m., with the theme playing from a bar somewhere. Free, from IRL Games Studio."],
+                        "Eleven places, three times of day, and a sound mixer for each. One of them is Sundown, the district from Neon Noon, empty at 3 a.m., with the theme playing from a bar somewhere. Free, from Lux Cor Games."],
                  features=["11 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Touch controls on Android", "Free"],
                  release="October 30, 2026", price="Free", platforms="Windows · Linux · Steam Deck · Android", badge="Free",
                  buy="Free on Google Play, or download it here: Windows, Linux (Steam Deck: the Linux build) and Android APK. Version 1.0.8",
@@ -134,8 +134,8 @@ def tags(t): return '<div class="tags">' + "".join(f'<span class="tag">{x}</span
 
 def facts(g):
     price = f"<dt>Price</dt><dd>{g['price']}</dd>" if g.get("price") else ""
-    return f"""<dl class="facts"><dt>Release date</dt><dd>{g.get('release', 'Coming soon')}</dd>{price}<dt>Developer</dt><dd><a href="index.html">IRL Games Studio</a></dd>
-<dt>Publisher</dt><dd><a href="index.html">IRL Games Studio</a></dd><dt>Platforms</dt><dd>{g.get('platforms', 'Windows · Steam Deck · Android')}</dd></dl>"""
+    return f"""<dl class="facts"><dt>Release date</dt><dd>{g.get('release', 'Coming soon')}</dd>{price}<dt>Developer</dt><dd><a href="index.html">Lux Cor Games</a></dd>
+<dt>Publisher</dt><dd><a href="index.html">Lux Cor Games</a></dd><dt>Platforms</dt><dd>{g.get('platforms', 'Windows · Steam Deck · Android')}</dd></dl>"""
 
 def play_badge(g, h=58):   # Google's official "Get it on Google Play" badge, unaltered (Google badge rules; trademark line in the footer)
     if not g.get("play"): return ""
@@ -174,7 +174,7 @@ def game_page(key):
   <aside class="panel"><p class="h-label">Features</p><ul>{''.join(f'<li>{f}</li>' for f in g['features'])}</ul></aside>
 </div>
 </main>"""
-    page(g["file"], f"{g['title']} · IRL Games Studio", f"{g['blurb']} {g['short']} " + ("Free on Windows, Linux and Android." if g.get("downloads") else "On Google Play now, coming to Steam." if g.get("play") else g.get("desc", "Coming to Steam and Google Play.")), body, key, f"og_{key}.jpg")
+    page(g["file"], f"{g['title']} · Lux Cor Games", f"{g['blurb']} {g['short']} " + ("Free on Windows, Linux and Android." if g.get("downloads") else "On Google Play now, coming to Steam." if g.get("play") else g.get("desc", "Coming to Steam and Google Play.")), body, key, f"og_{key}.jpg")
 
 def home():
     slides = ""
@@ -198,11 +198,11 @@ def home():
 <a class="cap" href="#vtube-live"><div class="vt"><img src="assets/img/vtubelive_icon.webp" alt="Vtube Live"></div><div class="ct">Vtube Live<span>In development</span></div></a>
 </div></section>
 <section class="section" id="vtube-live"><p class="h-label">Coming soon</p><div class="vtube"><img src="assets/img/vtubelive_icon.webp" alt="Vtube Live icon">
-<div><h2>Vtube Live</h2><p class="muted">A VTuber app from IRL Games Studio: build your avatar and go live. In development.</p>{tags(["VTuber", "Avatar", "Streaming", "In development"])}</div></div></section>
+<div><h2>Vtube Live</h2><p class="muted">A VTuber app from Lux Cor Games: build your avatar and go live. In development.</p>{tags(["VTuber", "Avatar", "Streaming", "In development"])}</div></div></section>
 <section class="section" id="community"><p class="h-label">Community</p><div class="buy" style="margin:0"><div><h2>Join the community</h2><p>News, development updates, trailers and a place to talk about the games. On X and YouTube: {X_HANDLE}</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="{DISCORD}" rel="noopener">Join the Discord</a><a class="btn" href="{X_URL}" rel="noopener">Follow on X</a><a class="btn" href="{YT_URL}" rel="noopener">Watch on YouTube</a></div></div></section>
-<section class="section"><p class="h-label">About the studio</p><p style="max-width:68ch">IRL Games Studio is an American indie studio, and we're gamers first: we make the games we want to play, in whatever genre that takes us. More are on the way. <a href="about.html">More about us</a></p></section>
+<section class="section"><p class="h-label">About the studio</p><p style="max-width:68ch">Lux Cor Games is an American indie studio, and we're gamers first: we make the games we want to play, in whatever genre that takes us. More are on the way. <a href="about.html">More about us</a></p></section>
 </main>"""
-    page("index.html", "IRL Games Studio", "Games by IRL Games Studio: Brimstone & Buckshot: Steel Chariot, coming soon to Steam; Neon Noon and Neon Noon: Dead Man's Hand, on Google Play now and coming to Steam, and No People, No Stories, free now.", body, "home")
+    page("index.html", "Lux Cor Games", "Games by Lux Cor Games: Brimstone & Buckshot: Steel Chariot, coming soon to Steam; Neon Noon and Neon Noon: Dead Man's Hand, on Google Play now and coming to Steam, and No People, No Stories, free now.", body, "home")
 
 def tips():   # the "Support the studio" box (About page)
     btns = (f'<a class="btn" href="{KOFI}" rel="noopener">Tip on Ko-fi</a>' if KOFI else "") + (f'<a class="btn" href="{STRIPE_TIP}" rel="noopener">Card, Apple Pay or Google Pay</a>' if STRIPE_TIP and STRIPE_LIVE else "")
@@ -215,12 +215,12 @@ def thanks():   # where the Stripe link sends a supporter after paying (and a pa
 <p style="font-size:1.15em">You just put fuel in the chariot. Your tip goes straight into the games, and we read every one.</p>
 <p>Come say hi on our <a href="{DISCORD}" rel="noopener">Discord</a>, follow <a href="{X_URL}" rel="noopener">{X_HANDLE}</a> on X, and hear our soundtracks on <a href="{YT_URL}" rel="noopener">YouTube</a>.</p>
 <p style="margin-top:28px"><a class="btn" href="index.html">Back to the games</a></p></main>"""
-    page("thanks.html", "Thank you · IRL Games Studio", "Thank you for supporting IRL Games Studio.", body, "about")
+    page("thanks.html", "Thank you · Lux Cor Games", "Thank you for supporting Lux Cor Games.", body, "about")
 
 def about():   # owner 2026-11-09: "we need an 'about us' page on the website as well" (DRAFT for the owner's review)
     games = "".join(f'<li><a href="{g["file"]}">{g["title"]}</a>: {g["blurb"][0].lower() + g["blurb"][1:].rstrip(".")}. <span class="muted">{g.get("badge", "Coming soon")}.</span></li>' for g in GAMES.values())
-    body = f"""<main class="wrap doc"><h1>About IRL Games Studio</h1>
-<p>IRL Games Studio is an American indie studio, and we're gamers first. We make the games we want to play: the ones we'd stay up too late for, tell our friends about and come back to. If it isn't fun for us, it doesn't ship.</p>
+    body = f"""<main class="wrap doc"><h1>About Lux Cor Games</h1>
+<p>Lux Cor Games is an American indie studio, and we're gamers first. We make the games we want to play: the ones we'd stay up too late for, tell our friends about and come back to. If it isn't fun for us, it doesn't ship.</p>
 <p>We don't stick to one genre. So far that's meant a cyberpunk western, a back-room poker game, a quiet walk through empty places and a zombie-smashing chariot with a cross welded to the plow. Whatever we make next, it'll be made the same way: by people who love games, for people who love games.</p>
 <h2>Our games so far</h2>
 <ul>{games}<li><a href="index.html#vtube-live">Vtube Live</a>: a VTuber app for building your avatar and going live. <span class="muted">In development.</span></li></ul>
@@ -230,23 +230,23 @@ def about():   # owner 2026-11-09: "we need an 'about us' page on the website as
 <p>We make games for PC (Windows, Linux and SteamOS) and Android, and we test on the Steam Deck. Every game has a "report a problem" button, and every report gets read.</p>
 {tips()}
 <h2>Say hello</h2>
-<p>Questions and help: <span class="mail">{SUPPORT}</span><br>Feedback and ideas: <span class="mail">{FEEDBACK}</span></p>
+<p>Questions, help, feedback and ideas: <span class="mail">{SUPPORT}</span></p>
 <p>Join us on <a href="{DISCORD}" rel="noopener">Discord</a>, follow <a href="{X_URL}" rel="noopener">{X_HANDLE}</a> on X, and watch trailers and hear our soundtracks on <a href="{YT_URL}" rel="noopener">YouTube</a>.</p></main>"""
-    page("about.html", "About · IRL Games Studio", "About IRL Games Studio, an American indie studio of gamers making the games we want to play: what we\'ve made so far, what\'s next and how we work.", body, "about")
+    page("about.html", "About · Lux Cor Games", "About Lux Cor Games, an American indie studio of gamers making the games we want to play: what we\'ve made so far, what\'s next and how we work.", body, "about")
 
 def support():
     body = f"""<main class="wrap doc"><h1>Support</h1>
 <p>Stuck, found a bug, or have a question about one of our games? We read everything.</p>
-<div class="panel"><p style="margin:0">General questions and help: <span class="mail">{SUPPORT}</span></p><p style="margin:6px 0 0">Game feedback and ideas: <span class="mail">{FEEDBACK}</span></p></div>
+<div class="panel"><p style="margin:0">Questions, help, game feedback and ideas: <span class="mail">{SUPPORT}</span></p></div>
 <h2>Community</h2><p>Talk to us and other players on our <a href="{DISCORD}" rel="noopener">Discord server</a>, or follow <a href="{X_URL}" rel="noopener">{X_HANDLE}</a> on X for news. Trailers and videos are on our <a href="{YT_URL}" rel="noopener">YouTube channel</a>.</p>
-<h2>Reporting a bug from inside the game</h2><p>Every IRL Games Studio game has a "report a problem" button. It sends us a short note and a screenshot of where you are, so we can see exactly what went wrong. See our <a href="privacy.html">Privacy Policy</a> for what a report contains.</p>
+<h2>Reporting a bug from inside the game</h2><p>Every Lux Cor Games game has a "report a problem" button. It sends us a short note and a screenshot of where you are, so we can see exactly what went wrong. See our <a href="privacy.html">Privacy Policy</a> for what a report contains.</p>
 <h2>Deleting your data</h2><p>Our games don't create accounts or collect anything automatically. If you sent a bug report and want it deleted, email <span class="mail">{SUPPORT}</span> and we'll remove it.</p>
 <h2>Refunds</h2><p>Purchases and refunds are handled by the store you bought from (Google Play or Steam).</p></main>"""
-    page("support.html", "Support · IRL Games Studio", "Help and contact for IRL Games Studio games.", body, "support")
+    page("support.html", "Support · Lux Cor Games", "Help and contact for Lux Cor Games games.", body, "support")
 
 def privacy():
     body = f"""<main class="wrap doc"><h1>Privacy Policy</h1><p class="muted">Effective November 9, 2026</p>
-<p>This policy covers all games by IRL Games Studio ("we"), including Brimstone &amp; Buckshot: Steel Chariot, Neon Noon, Neon Noon: Dead Man's Hand and No People, No Stories, on every platform, and this website.</p>
+<p>This policy covers all games by Lux Cor Games ("we"), including Brimstone &amp; Buckshot: Steel Chariot, Neon Noon, Neon Noon: Dead Man's Hand and No People, No Stories, on every platform, and this website.</p>
 <p><b>The short version:</b> our games don't collect anything about you unless you choose to send us a bug report. There are no ads, no tracking, no analytics and no accounts.</p>
 <h2>Update check (No People, No Stories)</h2><p>When it starts, No People, No Stories asks GitHub once whether a newer version is out. The request carries only the game's version number; like any web request, GitHub sees your internet address. Nothing else is sent, and we receive nothing from it.</p>
 <h2>What stays on your device</h2><p>Your saves, settings and progress are stored only on your device. We never see them.</p>
@@ -259,7 +259,7 @@ def privacy():
 {COUNTER_PRIVACY}<h2>Children</h2><p>Our games are made for adults and aren't directed at children under 13. We don't knowingly collect information from children.</p>
 <h2>Your choices</h2><p>To have a bug report you sent deleted, or to ask any question about privacy, email us at <span class="mail">{SUPPORT}</span>. We'll reply within 30 days.</p>
 <h2>Changes</h2><p>If this policy changes, we'll update the date at the top of this page.</p></main>"""
-    page("privacy.html", "Privacy Policy · IRL Games Studio", "Privacy policy for IRL Games Studio games.", body, "privacy")
+    page("privacy.html", "Privacy Policy · Lux Cor Games", "Privacy policy for Lux Cor Games games.", body, "privacy")
 
 if __name__ == "__main__":
     home(); game_page("bb"); game_page("nn"); game_page("npns"); game_page("dmh"); about(); thanks(); support(); privacy()
