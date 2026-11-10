@@ -5,7 +5,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SUPPORT = FEEDBACK = "LuxCorGames@proton.me"   # (owner 2026-11-10: "LuxCorGames@proton.me is the email for the company"; was irlgamesnow@ / IRLGfeedback@)
 DISCORD = "https://discord.gg/7yDTUyphKN"
 X_URL, X_HANDLE = "https://x.com/LuxCorMedia", "@LuxCorMedia"   # (owner 2026-11-10: "the New X.com is @LuxCorMedia"; was @IRLGamesNow)
-YT_URL = "https://www.youtube.com/@IRLGamesNow"   # owner, 2026-11-03
+YT_URL = "https://www.youtube.com/@LuxCorGames"   # (owner 2026-11-10: "youtube is @LuxCorGames"; was @IRLGamesNow)
 # tips (owner 2026-11-09: Ko-fi + Stripe, two ways so losing one isn't fatal). Empty = that button isn't shown; swap a link here only
 KOFI = "https://ko-fi.com/irlgames"
 STRIPE_TIP = "https://buy.stripe.com/dRmcN66tAaqpdO12DD7Re00"   # pay-what-you-want link (owner 2026-11-09); redirects to thanks.html
@@ -83,7 +83,7 @@ GAMES = {
                about=["The dead walk the roads, and the roads are all that's left. You've got a car, a cross welded to the plow and a tank of Holy Fire.",
                       "Build your chariot in the scrapyard: four cars to make your own, with paint and flames, painted marks, armour plate or a welded cage, a supercharger and a gun on the roof. Then take it out and smash through the damned at a hundred miles an hour.",
                       "Highways, coast roads and country back roads at dusk, at night and at dawn, with fuel tankers to blow, police roadblocks to break and ramps to jump. At least five roads at launch, and more after.",
-                      "Crank the radio: an original metal soundtrack rides along with you, punk metal to heavy metal, and you can flip stations on the fly. More songs are on the way. And when you start the game, an Orthodox chant, Steel Chariot, is waiting on the title screen. Hear every song, and a few extras, on <a href=\"https://www.youtube.com/@IRLGamesNow\" rel=\"noopener\">our YouTube channel</a>."],
+                      "Crank the radio: an original metal soundtrack rides along with you, punk metal to heavy metal, and you can flip stations on the fly. More songs are on the way. And when you start the game, an Orthodox chant, Steel Chariot, is waiting on the title screen. Hear every song, and a few extras, on <a href=\"https://www.youtube.com/@LuxCorGames\" rel=\"noopener\">our YouTube channel</a>."],
                features=["5+ roads at launch: highway, coast, country and more", "Four cars to build: the Interceptor, the Monster Truck, the Synaxis and the Bug",
                          "Paint, flames, marks, armour, cages, superchargers", "Roof guns: twin buckshot, stake launcher, rockets, a .50 cal heavy machine gun",
                          "Holy Fire: blue flame from the cross on your plow", "Nitro, ramps, smash combos", "An original metal soundtrack on the in-car radio, with more songs on the way", "Controller support, on Windows, Linux and SteamOS"],
