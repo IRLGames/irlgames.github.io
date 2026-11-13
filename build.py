@@ -117,7 +117,7 @@ GAMES = {
                  release="October 30, 2026", price="Free", platforms="Windows · Linux · Steam Deck · Android", badge="Free",
                  buy="Free on Google Play, or download it here: Windows, Linux (Steam Deck: the Linux build) and Android APK. Version 1.0.9",
                  play="https://play.google.com/store/apps/details?id=com.irlgamesstudio.nopeoplenostories",
-                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.9-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.9-linux.tar.gz"), ("Android APK", REL + "NoPeopleNoStories-1.0.9-android.apk")]),
+                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.9-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.9-linux.tar.gz"), ("Android APK", REL + "NoPeopleNoStories-1.0.9-android.apk"), ("itch.io", "https://lux-cor-games.itch.io/no-people-no-stories")]),   # (itch: owner 2026-11-13)
     "dmh": dict(file="dead-mans-hand.html", title="Neon Noon: Dead Man's Hand", short="Eleven years before noon. A stranger sits down with money and a question.",
                 blurb="The poker prequel to Neon Noon.",
                 tags=["Poker", "Card Game", "Visual Novel", "Cyberpunk", "Western", "Story Rich", "Multiple Endings", "Noir"],
