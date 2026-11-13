@@ -5,6 +5,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 SUPPORT = FEEDBACK = "LuxCorGames@proton.me"   # (owner 2026-11-10: "LuxCorGames@proton.me is the email for the company"; was irlgamesnow@ / IRLGfeedback@)
 DISCORD = "https://discord.gg/7yDTUyphKN"
 MERCH = "https://luxcorgames-shop.fourthwall.com/"   # (owner 2026-11-13: "update the website to have a merch link" - the Fourthwall shop)
+ITCH = "https://lux-cor-games.itch.io/"   # (owner 2026-11-13: the studio's itch.io page)
 X_URL, X_HANDLE = "https://x.com/LuxCorMedia", "@LuxCorMedia"   # (owner 2026-11-10: "the New X.com is @LuxCorMedia"; was @IRLGamesNow)
 YT_URL = "https://www.youtube.com/@LuxCorGames"   # (owner 2026-11-10: "youtube is @LuxCorGames"; was @IRLGamesNow)
 # tips (owner 2026-11-09: Ko-fi + Stripe, two ways so losing one isn't fatal). Empty = that button isn't shown; swap a link here only
@@ -61,7 +62,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 <body>
 <header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/img/luxcor_mark.webp" alt="" width="32" height="32" style="align-self:center;border-radius:4px">LUX COR <small>GAMES</small></a><nav class="nav" aria-label="Main">{nav}</nav></div></header>
 {body}
-<footer><div class="wrap"><span>© 2026 Lux Cor LLC · Lux Cor Games</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{MERCH}" rel="noopener">Merch</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><a href="about.html#support-us">Support us</a><span>{SUPPORT}</span><span class="tm">Google Play and the Google Play logo are trademarks of Google LLC.</span></div></footer>
+<footer><div class="wrap"><span>© 2026 Lux Cor LLC · Lux Cor Games</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{MERCH}" rel="noopener">Merch</a><a href="{ITCH}" rel="noopener">itch.io</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><a href="about.html#support-us">Support us</a><span>{SUPPORT}</span><span class="tm">Google Play and the Google Play logo are trademarks of Google LLC.</span></div></footer>
 <script src="assets/site.js"></script>{COUNTER_JS}
 </body>
 </html>
@@ -200,7 +201,7 @@ def home():
 </div></section>
 <section class="section" id="vtube-live"><p class="h-label">Coming soon</p><div class="vtube"><img src="assets/img/vtubelive_icon.webp" alt="Vtube Live icon">
 <div><h2>Vtube Live</h2><p class="muted">A VTuber app from Lux Cor Games: build your avatar and go live. In development.</p>{tags(["VTuber", "Avatar", "Streaming", "In development"])}</div></div></section>
-<section class="section" id="community"><p class="h-label">Community</p><div class="buy" style="margin:0"><div><h2>Join the community</h2><p>News, development updates, trailers and a place to talk about the games. On X and YouTube: {X_HANDLE}</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="{DISCORD}" rel="noopener">Join the Discord</a><a class="btn" href="{X_URL}" rel="noopener">Follow on X</a><a class="btn" href="{YT_URL}" rel="noopener">Watch on YouTube</a></div></div></section>
+<section class="section" id="community"><p class="h-label">Community</p><div class="buy" style="margin:0"><div><h2>Join the community</h2><p>News, development updates, trailers and a place to talk about the games. On X and YouTube: {X_HANDLE}</p></div><div style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn" href="{DISCORD}" rel="noopener">Join the Discord</a><a class="btn" href="{X_URL}" rel="noopener">Follow on X</a><a class="btn" href="{YT_URL}" rel="noopener">Watch on YouTube</a><a class="btn" href="{ITCH}" rel="noopener">Find us on itch.io</a></div></div></section>
 <section class="section"><p class="h-label">About the studio</p><p style="max-width:68ch">Lux Cor Games is an American indie studio, and we're gamers first: we make the games we want to play, in whatever genre that takes us. More are on the way. <a href="about.html">More about us</a></p></section>
 </main>"""
     page("index.html", "Lux Cor Games", "Games by Lux Cor Games: Brimstone & Buckshot: Steel Chariot, coming soon to Steam; Neon Noon and Neon Noon: Dead Man's Hand, on Google Play now and coming to Steam, and No People, No Stories, free now.", body, "home")
