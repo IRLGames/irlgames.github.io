@@ -26,11 +26,11 @@ img, video { max-width: 100%; display: block; }
 
 /* top bar, like Steam's global header */
 .top { background: #000; border-bottom: 2px solid var(--crimson); position: sticky; top: 0; z-index: 20; }
-.top .wrap { display: flex; align-items: center; gap: 22px; min-height: 64px; flex-wrap: wrap; }
+.top .wrap { display: flex; align-items: center; gap: 18px; min-height: 64px; flex-wrap: wrap; }
 .brand { display: flex; align-items: baseline; gap: 8px; font: 700 22px/1 var(--f-display); color: var(--gold-hi); letter-spacing: .04em; }
 .brand small { font: 600 11px/1 var(--f-body); letter-spacing: .35em; color: var(--text); }
-.nav { display: flex; gap: 2px 18px; flex-wrap: wrap; }   /* (18 / .08em: LUX COR GAMES is wider than the old name, 2026-11-10) */
-.nav a { color: var(--text); font: 600 14px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; padding: 22px 0; border-bottom: 2px solid transparent; margin-bottom: -2px; }
+.nav { display: flex; gap: 2px 12px; flex-wrap: wrap; }   /* (12 / .06em: with MERCH added 2026-11-13 the menu dropped under the logo at 18 / .08em) */
+.nav a { color: var(--text); font: 600 14px/1 var(--f-body); letter-spacing: .06em; text-transform: uppercase; padding: 22px 0; border-bottom: 2px solid transparent; margin-bottom: -2px; }
 .nav a:hover, .nav a[aria-current="page"] { color: var(--gold-hi); border-bottom-color: var(--gold); }
 
 .hero img { width: 100%; height: auto; }

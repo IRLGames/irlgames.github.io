@@ -4,6 +4,7 @@ import os
 HERE = os.path.dirname(os.path.abspath(__file__))
 SUPPORT = FEEDBACK = "LuxCorGames@proton.me"   # (owner 2026-11-10: "LuxCorGames@proton.me is the email for the company"; was irlgamesnow@ / IRLGfeedback@)
 DISCORD = "https://discord.gg/7yDTUyphKN"
+MERCH = "https://luxcorgames-shop.fourthwall.com/"   # (owner 2026-11-13: "update the website to have a merch link" - the Fourthwall shop)
 X_URL, X_HANDLE = "https://x.com/LuxCorMedia", "@LuxCorMedia"   # (owner 2026-11-10: "the New X.com is @LuxCorMedia"; was @IRLGamesNow)
 YT_URL = "https://www.youtube.com/@LuxCorGames"   # (owner 2026-11-10: "youtube is @LuxCorGames"; was @IRLGamesNow)
 # tips (owner 2026-11-09: Ko-fi + Stripe, two ways so losing one isn't fatal). Empty = that button isn't shown; swap a link here only
@@ -25,7 +26,7 @@ SITE = "https://irlgames.github.io/"
 def page(name, title, desc, body, current, og="og_home.jpg"):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == current else ""}>{t}</a>'
                   for k, h, t in [("home", "index.html", "Store"), ("bb", "steel-chariot.html", "Steel Chariot"), ("nn", "neon-noon.html", "Neon Noon"), ("npns", "no-people-no-stories.html", "No People, No Stories"), ("dmh", "dead-mans-hand.html", "Dead Man's Hand"),
-                                  ("about", "about.html", "About"), ("support", "support.html", "Support"), ("privacy", "privacy.html", "Privacy")])
+                                  ("merch", MERCH, "Merch"), ("about", "about.html", "About"), ("support", "support.html", "Support"), ("privacy", "privacy.html", "Privacy")])
     html = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -60,7 +61,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 <body>
 <header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/img/luxcor_mark.webp" alt="" width="32" height="32" style="align-self:center;border-radius:4px">LUX COR <small>GAMES</small></a><nav class="nav" aria-label="Main">{nav}</nav></div></header>
 {body}
-<footer><div class="wrap"><span>© 2026 Lux Cor LLC · Lux Cor Games</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><a href="about.html#support-us">Support us</a><span>{SUPPORT}</span><span class="tm">Google Play and the Google Play logo are trademarks of Google LLC.</span></div></footer>
+<footer><div class="wrap"><span>© 2026 Lux Cor LLC · Lux Cor Games</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{MERCH}" rel="noopener">Merch</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><a href="about.html#support-us">Support us</a><span>{SUPPORT}</span><span class="tm">Google Play and the Google Play logo are trademarks of Google LLC.</span></div></footer>
 <script src="assets/site.js"></script>{COUNTER_JS}
 </body>
 </html>
