@@ -102,7 +102,7 @@ GAMES = {
                features=["Single-player story, 5 endings", "33 hidden collectible cards", "A full Texas Hold'em table", "Controller support and Steam Deck controls", "Touch controls on Android"],
                release="November 6, 2026 (Android)", price="Free to start; the full story is a one-time in-app purchase", badge="On Google Play",
                platforms="Android now · Windows and Steam Deck coming", buy="Free to start on Android. Steam (Windows, Steam Deck) coming soon.",
-               play="https://play.google.com/store/apps/details?id=com.irlgamesstudio.neonnoon"),
+               play="https://play.google.com/store/apps/details?id=com.irlgamesstudio.neonnoon", itch="https://lux-cor-games.itch.io/neon-noon"),
     "npns": dict(file="no-people-no-stories.html", title="No People, No Stories", short="Pools, garages, a night mall, an Egyptian temple, Neon Noon's rain-soaked Sundown. Nobody else is here.",
                  blurb="An endless liminal ASMR walk through empty places.",
                  tags=["Walking Simulator", "Relaxing", "Atmospheric", "ASMR", "Liminal Space", "Exploration", "Procedural", "Free"],
@@ -116,8 +116,8 @@ GAMES = {
                  features=["11 endless places, new every walk", "Noon, late light and after hours", "A sound mixer for every place", "Controller and Steam Deck support", "Touch controls on Android", "Free"],
                  release="October 30, 2026", price="Free", platforms="Windows · Linux · Steam Deck · Android", badge="Free",
                  buy="Free on Google Play, or download it here: Windows, Linux (Steam Deck: the Linux build) and Android APK. Version 1.0.9",
-                 play="https://play.google.com/store/apps/details?id=com.irlgamesstudio.nopeoplenostories",
-                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.9-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.9-linux.tar.gz"), ("Android APK", REL + "NoPeopleNoStories-1.0.9-android.apk"), ("itch.io", "https://lux-cor-games.itch.io/no-people-no-stories")]),   # (itch: owner 2026-11-13)
+                 play="https://play.google.com/store/apps/details?id=com.irlgamesstudio.nopeoplenostories", itch="https://lux-cor-games.itch.io/no-people-no-stories",
+                 downloads=[("Windows", REL + "NoPeopleNoStories-1.0.9-windows.zip"), ("Linux", REL + "NoPeopleNoStories-1.0.9-linux.tar.gz"), ("Android APK", REL + "NoPeopleNoStories-1.0.9-android.apk")]),
     "dmh": dict(file="dead-mans-hand.html", title="Neon Noon: Dead Man's Hand", short="Eleven years before noon. A stranger sits down with money and a question.",
                 blurb="The poker prequel to Neon Noon.",
                 tags=["Poker", "Card Game", "Visual Novel", "Cyberpunk", "Western", "Story Rich", "Multiple Endings", "Noir"],
@@ -129,7 +129,7 @@ GAMES = {
                 features=["Single-player story, 3 endings", "Real Texas Hold'em, never rigged", "Collectible card decks", "Controller support and Steam Deck controls", "Touch controls on Android"],
                 release="November 6, 2026 (Android)", price="$4.99 on Google Play", badge="On Google Play",
                 platforms="Android now · Windows and Steam Deck coming", buy="On Android now. Steam (Windows, Steam Deck) coming soon.",
-                play="https://play.google.com/store/apps/details?id=com.irlgamesstudio.deadmanshand"),
+                play="https://play.google.com/store/apps/details?id=com.irlgamesstudio.deadmanshand", itch="https://lux-cor-games.itch.io/neon-noon-dead-mans-hand"),
 }
 
 def tags(t): return '<div class="tags">' + "".join(f'<span class="tag">{x}</span>' for x in t) + "</div>"
@@ -143,11 +143,12 @@ def play_badge(g, h=58):   # Google's official "Get it on Google Play" badge, un
     if not g.get("play"): return ""
     return f'<a class="play" href="{g["play"]}" rel="noopener"><img src="assets/img/google-play-badge.png" alt="Get it on Google Play" height="{h}" width="{round(h * 646 / 250)}"></a>'
 
-def buy(g):   # the buy box: Google Play and/or downloads for a released game, "coming soon" for the rest
+def buy(g):   # the buy box: Google Play, itch.io and/or downloads for a released game, "coming soon" for the rest
+    itch = f'<a class="btn" href="{g["itch"]}" rel="noopener">itch.io</a>' if g.get("itch") else ""   # (owner 2026-11-13: the games' itch.io pages)
     if g.get("play") and not g.get("downloads"):
-        return f'<div class="buy"><div><h2>{g["title"]}</h2><p>{g["buy"]}</p></div>{play_badge(g)}</div>'
+        return f'<div class="buy"><div><h2>{g["title"]}</h2><p>{g["buy"]}</p></div><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">{play_badge(g)}{itch}</div></div>'
     if g.get("downloads"):
-        btns = "".join(f'<a class="btn" href="{u}">{t}</a>' for t, u in g["downloads"])
+        btns = "".join(f'<a class="btn" href="{u}">{t}</a>' for t, u in g["downloads"]) + itch
         return f'<div class="buy"><div><h2>{g["title"]}</h2><p>{g["buy"]}</p></div><div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">{play_badge(g)}{btns}</div></div>'
     return f'<div class="buy"><div><h2>{g["title"]}</h2><p>{g.get("buy", "Coming soon to Steam and Google Play")}</p></div><span class="btn">Coming soon</span></div>'
 
