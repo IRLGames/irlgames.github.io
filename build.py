@@ -27,7 +27,7 @@ SITE = "https://irlgames.github.io/"
 def page(name, title, desc, body, current, og="og_home.jpg"):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == current else ""}>{t}</a>'
                   for k, h, t in [("home", "index.html", "Store"), ("bb", "steel-chariot.html", "Steel Chariot"), ("nn", "neon-noon.html", "Neon Noon"), ("npns", "no-people-no-stories.html", "No People, No Stories"), ("dmh", "dead-mans-hand.html", "Dead Man's Hand"),
-                                  ("merch", MERCH, "Merch"), ("about", "about.html", "About"), ("support", "support.html", "Support"), ("privacy", "privacy.html", "Privacy")])
+                                  ("merch", MERCH, "Merch"), ("about", "about.html", "About")])   # (owner 2026-11-14: "the header is getting full" - Support, Privacy and the AI policy live in the footer)
     html = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -62,7 +62,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 <body>
 <header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/img/luxcor_mark.webp" alt="" width="32" height="32" style="align-self:center;border-radius:4px">LUX COR <small>GAMES</small></a><nav class="nav" aria-label="Main">{nav}</nav></div></header>
 {body}
-<footer><div class="wrap"><span>© 2026 Lux Cor LLC · Lux Cor Games</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{MERCH}" rel="noopener">Merch</a><a href="{ITCH}" rel="noopener">itch.io</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><a href="about.html#support-us">Support us</a><span>{SUPPORT}</span><span class="tm">Google Play and the Google Play logo are trademarks of Google LLC.</span></div></footer>
+<footer><div class="wrap"><span>© 2026 Lux Cor LLC · Lux Cor Games</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{MERCH}" rel="noopener">Merch</a><a href="{ITCH}" rel="noopener">itch.io</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><a href="ai-policy.html">AI policy</a><a href="about.html#support-us">Support us</a><span>{SUPPORT}</span><span class="tm">Google Play and the Google Play logo are trademarks of Google LLC.</span></div></footer>
 <script src="assets/site.js"></script>{COUNTER_JS}
 </body>
 </html>
@@ -220,22 +220,31 @@ def thanks():   # where the Stripe link sends a supporter after paying (and a pa
 <p style="margin-top:28px"><a class="btn" href="index.html">Back to the games</a></p></main>"""
     page("thanks.html", "Thank you · Lux Cor Games", "Thank you for supporting Lux Cor Games.", body, "about")
 
-def about():   # owner 2026-11-09: "we need an 'about us' page on the website as well" (DRAFT for the owner's review)
+def about():   # owner 2026-11-09: "we need an 'about us' page on the website as well"; 2026-11-14: + the AI policy and the faith paragraph (owner's words)
     games = "".join(f'<li><a href="{g["file"]}">{g["title"]}</a>: {g["blurb"][0].lower() + g["blurb"][1:].rstrip(".")}. <span class="muted">{g.get("badge", "Coming soon")}.</span></li>' for g in GAMES.values())
     body = f"""<main class="wrap doc"><h1>About Lux Cor Games</h1>
 <p>Lux Cor Games is an American indie studio, and we're gamers first. We make the games we want to play: the ones we'd stay up too late for, tell our friends about and come back to. If it isn't fun for us, it doesn't ship.</p>
 <p>We don't stick to one genre. So far that's meant a cyberpunk western, a back-room poker game, a quiet walk through empty places and a zombie-smashing chariot with a cross welded to the plow. Whatever we make next, it'll be made the same way: by people who love games, for people who love games.</p>
+<p id="faith">Lux Cor Games is guided by faith in Jesus Christ, and our values are meant to line up with His. We're all sinners, and we count ourselves chief among them, so none of this is for praise or fame. We only hope to make good games that are in line with our faith and fun to play.</p>
 <h2>Our games so far</h2>
 <ul>{games}<li><a href="index.html#vtube-live">Vtube Live</a>: a VTuber app for building your avatar and going live. <span class="muted">In development.</span></li></ul>
 <p>And we're just getting started. More games are on the way, in genres we haven't touched yet.</p>
 <h2>How we work</h2>
 <p>Every game is our own: original stories and original worlds, built in-house. We'd rather ship a small game that's finished than a big one that isn't, and we keep working on our games after launch.</p>
 <p>We make games for PC (Windows, Linux and SteamOS) and Android, and we test on the Steam Deck. Every game has a "report a problem" button, and every report gets read.</p>
+<p>How we use AI, and what we make ourselves: <a href="ai-policy.html">our AI policy</a>.</p>
 {tips()}
 <h2>Say hello</h2>
 <p>Questions, help, feedback and ideas: <span class="mail">{SUPPORT}</span></p>
 <p>Join us on <a href="{DISCORD}" rel="noopener">Discord</a>, follow <a href="{X_URL}" rel="noopener">{X_HANDLE}</a> on X, and watch trailers and hear our soundtracks on <a href="{YT_URL}" rel="noopener">YouTube</a>.</p></main>"""
     page("about.html", "About · Lux Cor Games", "About Lux Cor Games, an American indie studio of gamers making the games we want to play: what we\'ve made so far, what\'s next and how we work.", body, "about")
+
+def ai_policy():   # owner 2026-11-14: "I want to add an AI policy to the web site so it's clear the priorities" (its own page: "the AI stuff stays in the AI section")
+    body = f"""<main class="wrap doc"><h1>Our AI policy</h1>
+<p><b>Fun comes first.</b> Every tool we use, AI included, is there to make a better game. However a game is made, if it isn't fun, it doesn't ship.</p>
+<p><b>For now, we're an AI games studio.</b> Lux Cor Games is one person with a vision for the games, and AI tools help build them. All of our assets are made in-house, and almost all of them on our own computers: the art, the 3D models, the music and the sound are our own making. The few pieces that aren't, we'll name: some free public-domain (CC0) texture scans, a handful of free open-licence fonts, and our code, which is written with the help of a cloud AI assistant. As the studio starts making enough money to support more people, we'll bring on human help where it makes sense. Until then, we're primarily an AI games studio, and we'd rather tell you that plainly.</p>
+<p>Questions about how we make our games: <span class="mail">{SUPPORT}</span></p></main>"""
+    page("ai-policy.html", "AI policy · Lux Cor Games", "How Lux Cor Games uses AI: fun comes first, our assets are made in-house, and what we don't make ourselves.", body, "ai")
 
 def support():
     body = f"""<main class="wrap doc"><h1>Support</h1>
@@ -265,5 +274,5 @@ def privacy():
     page("privacy.html", "Privacy Policy · Lux Cor Games", "Privacy policy for Lux Cor Games games.", body, "privacy")
 
 if __name__ == "__main__":
-    home(); game_page("bb"); game_page("nn"); game_page("npns"); game_page("dmh"); about(); thanks(); support(); privacy()
+    home(); game_page("bb"); game_page("nn"); game_page("npns"); game_page("dmh"); about(); ai_policy(); thanks(); support(); privacy()
     print("built:", ", ".join(sorted(f for f in os.listdir(HERE) if f.endswith(".html"))))
