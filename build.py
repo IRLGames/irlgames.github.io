@@ -26,7 +26,7 @@ SITE = "https://irlgames.github.io/"
 
 # share-card cache buster (owner 2026-11-15: "teh embed for Discord and stuff still say IRL games" - the og images were redrawn for
 # Lux Cor under the same names, and Discord / X keep the old picture per image URL): bump OG_V whenever a share image changes
-OG_V = "20261115"
+OG_V = "20261115b"
 
 def page(name, title, desc, body, current, og="og_home.jpg"):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == current else ""}>{t}</a>'
