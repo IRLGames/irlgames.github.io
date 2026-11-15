@@ -24,6 +24,10 @@ COUNTER_PRIVACY = ("" if not COUNTER_URL else
 
 SITE = "https://irlgames.github.io/"
 
+# share-card cache buster (owner 2026-11-15: "teh embed for Discord and stuff still say IRL games" - the og images were redrawn for
+# Lux Cor under the same names, and Discord / X keep the old picture per image URL): bump OG_V whenever a share image changes
+OG_V = "20261115"
+
 def page(name, title, desc, body, current, og="og_home.jpg"):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == current else ""}>{t}</a>'
                   for k, h, t in [("home", "index.html", "Store"), ("bb", "steel-chariot.html", "Steel Chariot"), ("nn", "neon-noon.html", "Neon Noon"), ("npns", "no-people-no-stories.html", "No People, No Stories"), ("dmh", "dead-mans-hand.html", "Dead Man's Hand"),
@@ -40,7 +44,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 <meta property="og:title" content="{title}">
 <meta property="og:description" content="{desc}">
 <meta property="og:url" content="{SITE}{'' if name == 'index.html' else name}">
-<meta property="og:image" content="{SITE}assets/img/{og}">
+<meta property="og:image" content="{SITE}assets/img/{og}?v={OG_V}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="{title}">
@@ -49,7 +53,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 <meta name="twitter:site" content="{X_HANDLE}">
 <meta name="twitter:title" content="{title}">
 <meta name="twitter:description" content="{desc}">
-<meta name="twitter:image" content="{SITE}assets/img/{og}">
+<meta name="twitter:image" content="{SITE}assets/img/{og}?v={OG_V}">
 <meta name="twitter:image:alt" content="{title}">
 <link rel="canonical" href="{SITE}{'' if name == 'index.html' else name}">
 <meta name="theme-color" content="#941D16">
