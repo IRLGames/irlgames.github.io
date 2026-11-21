@@ -6,6 +6,10 @@ SUPPORT = FEEDBACK = "LuxCorGames@proton.me"   # (owner 2026-11-10: "LuxCorGames
 DISCORD = "https://discord.gg/7yDTUyphKN"
 MERCH = "https://luxcorgames-shop.fourthwall.com/"   # (owner 2026-11-13: "update the website to have a merch link" - the Fourthwall shop)
 ITCH = "https://lux-cor-games.itch.io/"   # (owner 2026-11-13: the studio's itch.io page)
+# a notice band under the menu on every page (owner 2026-11-20: "put a notice on the website about there being a sale on itch.io for
+# neon noon and nn:dmh"). SALE = "" takes it off.
+SALE = ('Black Friday sale on itch.io: <a href="https://lux-cor-games.itch.io/neon-noon" rel="noopener">Neon Noon</a> and '
+        '<a href="https://lux-cor-games.itch.io/neon-noon-dead-mans-hand" rel="noopener">Neon Noon: Dead Man\'s Hand</a> are on sale now.')
 X_URL, X_HANDLE = "https://x.com/LuxCorMedia", "@LuxCorMedia"   # (owner 2026-11-10: "the New X.com is @LuxCorMedia"; was @IRLGamesNow)
 YT_URL = "https://www.youtube.com/@LuxCorGames"   # (owner 2026-11-10: "youtube is @LuxCorGames"; was @IRLGamesNow)
 # tips (owner 2026-11-09: Ko-fi + Stripe, two ways so losing one isn't fatal). Empty = that button isn't shown; swap a link here only
@@ -27,6 +31,10 @@ SITE = "https://irlgames.github.io/"
 # share-card cache buster (owner 2026-11-15: "teh embed for Discord and stuff still say IRL games" - the og images were redrawn for
 # Lux Cor under the same names, and Discord / X keep the old picture per image URL): bump OG_V whenever a share image changes
 OG_V = "20261115b"
+
+SALE_BAND = (f'<div class="sale" role="note" style="background:#941D16;color:#fff;text-align:center;padding:9px 16px;font-weight:600;'
+             f'letter-spacing:.02em;border-bottom:1px solid #BE9B58">{SALE}</div>\n'
+             '<style>.sale a{color:#E8D08A;text-decoration:underline;text-underline-offset:2px}.sale a:hover{color:#fff}</style>\n') if SALE else ""
 
 def page(name, title, desc, body, current, og="og_home.jpg"):
     nav = "".join(f'<a href="{h}"{" aria-current=\"page\"" if k == current else ""}>{t}</a>'
@@ -65,7 +73,7 @@ def page(name, title, desc, body, current, og="og_home.jpg"):
 </head>
 <body>
 <header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/img/luxcor_mark.webp" alt="" width="32" height="32" style="align-self:center;border-radius:4px">LUX COR <small>GAMES</small></a><nav class="nav" aria-label="Main">{nav}</nav></div></header>
-{body}
+{SALE_BAND}{body}
 <footer><div class="wrap"><span>© 2026 Lux Cor LLC · Lux Cor Games</span><a href="privacy.html">Privacy Policy</a><a href="support.html">Support</a><a href="{MERCH}" rel="noopener">Merch</a><a href="{ITCH}" rel="noopener">itch.io</a><a href="{DISCORD}" rel="noopener">Discord</a><a href="{X_URL}" rel="noopener">X {X_HANDLE}</a><a href="{YT_URL}" rel="noopener">YouTube</a><a href="ai-policy.html">AI policy</a><a href="about.html#support-us">Support us</a><span>{SUPPORT}</span><span class="tm">Google Play and the Google Play logo are trademarks of Google LLC.</span></div></footer>
 <script src="assets/site.js"></script>{COUNTER_JS}
 </body>
